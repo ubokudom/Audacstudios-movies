@@ -124,6 +124,8 @@ export function publicConfig() {
     imageAspects: IMAGE_ASPECTS,
     videoPricePerM: VIDEO_PRICE_PER_M_TOKENS,
     apiKeySet: hasApiKey(),
+    // On Vercel, files can only be kept if a Blob store is connected.
+    storageMissing: Boolean(process.env.VERCEL) && !process.env.BLOB_READ_WRITE_TOKEN,
   };
 }
 

@@ -398,6 +398,13 @@ export default function Studio() {
         </div>
       </header>
 
+      {config && config.storageMissing && (
+        <div className="notice" role="status">
+          <strong>File storage isn't connected.</strong> In Vercel, open Storage, create a Blob store, connect it to this project, then redeploy.
+          Until then, finished videos and images can't be saved.
+        </div>
+      )}
+
       {config && !config.apiKeySet && (
         <div className="notice" role="status">
           <strong>No BytePlus key connected yet.</strong> You can look around, but nothing will be created until you add{' '}

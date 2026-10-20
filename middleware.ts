@@ -4,7 +4,7 @@ import { COOKIE_NAME, readSession } from './lib/auth';
 export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
-  if (pathname === '/login' || pathname.startsWith('/api/login')) {
+  if (pathname === '/login' || pathname.startsWith('/api/login') || pathname === '/api/health') {
     return NextResponse.next();
   }
 
