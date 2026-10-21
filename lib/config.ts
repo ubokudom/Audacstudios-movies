@@ -111,8 +111,13 @@ export const VIDEO_PRICE_PER_M_TOKENS = Number(process.env.VIDEO_PRICE_PER_M_TOK
 
 export const STUDIO_NAME = process.env.STUDIO_NAME || 'Cyberline Studio';
 
+/** The BytePlus key. Also accepts the lower-case name `byte_plus_apikey`. */
+export function getApiKey(): string | undefined {
+  return (process.env.BYTEPLUS_API_KEY || process.env.byte_plus_apikey || '').trim() || undefined;
+}
+
 export function hasApiKey() {
-  return Boolean(process.env.BYTEPLUS_API_KEY);
+  return Boolean(getApiKey());
 }
 
 export function publicConfig() {

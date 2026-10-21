@@ -1,7 +1,7 @@
 // Thin client for BytePlus ModelArk (Seedance video tasks + Seedream images).
 // API: https://ark.ap-southeast.bytepluses.com/api/v3, Bearer API key.
 
-import { BYTEPLUS_BASE_URL, VIDEO_PRICE_PER_M_TOKENS } from './config';
+import { BYTEPLUS_BASE_URL, VIDEO_PRICE_PER_M_TOKENS, getApiKey } from './config';
 
 export class ApiError extends Error {
   code: string;
@@ -14,7 +14,7 @@ export class ApiError extends Error {
 }
 
 function apiKey() {
-  const k = process.env.BYTEPLUS_API_KEY;
+  const k = getApiKey();
   if (!k) {
     throw new ApiError(
       'No BytePlus API key yet. Add BYTEPLUS_API_KEY in your hosting settings, then redeploy.',
