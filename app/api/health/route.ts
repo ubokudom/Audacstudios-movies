@@ -10,6 +10,6 @@ export async function GET() {
     passwordSet: passwordConfigured(),
     sessionSecretSet: Boolean(process.env.SESSION_SECRET),
     byteplusKeySet: hasApiKey(),
-    storage: process.env.BLOB_READ_WRITE_TOKEN ? 'vercel-blob' : process.env.VERCEL ? 'missing' : 'disk',
+    storage: (process.env.BLOB_READ_WRITE_TOKEN || process.env.BLOB_STORE_ID) ? 'vercel-blob' : process.env.VERCEL ? 'missing' : 'disk',
   });
 }

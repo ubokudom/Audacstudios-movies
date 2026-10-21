@@ -1,6 +1,6 @@
 // Where finished videos, images and their records are kept.
 //
-// - On Vercel (BLOB_READ_WRITE_TOKEN set): Vercel Blob. Media files get long
+// - On Vercel (BLOB_READ_WRITE_TOKEN or BLOB_STORE_ID set): Vercel Blob. Media files get long
 //   random, unguessable URLs and are served straight from Blob (Vercel's
 //   function responses are capped at 4.5 MB, too small for video).
 // - Anywhere else: the ./data folder on the server's disk, served through
@@ -11,7 +11,7 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import type { Generation } from './types';
 
-export const usingBlob = () => Boolean(process.env.BLOB_READ_WRITE_TOKEN);
+export const usingBlob = () => Boolean(process.env.BLOB_READ_WRITE_TOKEN || process.env.BLOB_STORE_ID);
 const dataDir = () => path.resolve(process.env.DATA_DIR || path.join(process.cwd(), 'data'));
 
 /** A folder name derived from the session secret, so blob paths can't be guessed. */
