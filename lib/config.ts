@@ -63,6 +63,14 @@ const DEFAULT_VIDEO_MODELS: VideoModel[] = [
 
 const DEFAULT_IMAGE_MODELS: ImageModel[] = [
   {
+    id: 'dola-seedream-5-0-flash-260915',
+    label: 'Seedream 5.0 Flash',
+    note: 'Fastest and cheapest. Supports reference images.',
+    sizes: ['1K', '2K'],
+    supportsRefs: true,
+    pricePerImage: 0.018,
+  },
+  {
     id: 'seedream-5-0-260128',
     label: 'Seedream 5.0 Lite',
     note: 'Fast, low cost, supports reference images.',
